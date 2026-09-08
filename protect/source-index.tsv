@@ -1,0 +1,24 @@
+PROTECT1	PROTECT1 (Anti Intip Server In Settings)	/var/www/pterodactyl/app/Http/Controllers/Admin/Servers/ServerController.php
+PROTECT1	PROTECT1 (Otomatis Isi Server Owner)	/var/www/pterodactyl/resources/views/admin/servers/new.blade.php
+PROTECT1	PROTECT1 (Anti Update Detail Server)	/var/www/pterodactyl/app/Services/Servers/DetailsModificationService.php
+PROTECT1	PROTECT1 (Anti Update Build Configuration Server)	/var/www/pterodactyl/app/Services/Servers/BuildModificationService.php
+PROTECT1	PROTECT1 (Anti Setup Server)	/var/www/pterodactyl/app/Services/Servers/StartupModificationService.php
+PROTECT1	PROTECT1 (Anti Update Database)	/var/www/pterodactyl/app/Services/Databases/DatabaseManagementService.php
+PROTECT1	PROTECT1 ANTI UPDATE MANAGE (Anti Button Transfer This Server)	/var/www/pterodactyl/app/Http/Controllers/Admin/Servers/ServerTransferController.php
+PROTECT1	PROTECT1 ANTI UPDATE MANAGE (Anti Button Suspend Status)	/var/www/pterodactyl/app/Http/Controllers/Admin/ServersController.php
+PROTECT1	PROTECT1 ANTI UPDATE MANAGE (Anti Button Toggle Status)	/var/www/pterodactyl/app/Http/Controllers/Admin/ServersController.php
+PROTECT1	PROTECT1 ANTI UPDATE MANAGE (Anti Button Reinstall Status)	/var/www/pterodactyl/app/Services/Servers/ReinstallServerService.php
+PROTECT1	PROTECT1 (Anti Delete Server)	/var/www/pterodactyl/app/Services/Servers/ServerDeletionService.php
+PROTECT2	PROTECT2 (ANTI INTIP USERS & ANTI CADMIN)	/var/www/pterodactyl/app/Http/Controllers/Admin/UserController.php
+PROTECT3	PROTECT3 (ANTI INTIP LOCATION)	/var/www/pterodactyl/app/Http/Controllers/Admin/LocationController.php
+PROTECT4	PROTECT4 (ANTI INTIP NODES)	/var/www/pterodactyl/app/Http/Controllers/Admin/Nodes/NodeController.php
+PROTECT5	PROTECT5 (ANTI INTIP NEST)	/var/www/pterodactyl/app/Http/Controllers/Admin/Nests/NestController.php
+PROTECT6	PROTECT6 (ANTI INTIP SETTINGS)	/var/www/pterodactyl/app/Http/Controllers/Admin/Settings/IndexController.php
+PROTECT7	PROTECT7 (ANTI AKSES FILE & DOWNLOAD)	/var/www/pterodactyl/app/Http/Controllers/Api/Client/Servers/FileController.php
+PROTECT8	PROTECT8 (ANTI INTIP SERVER)	/var/www/pterodactyl/app/Http/Controllers/Api/Client/Servers/ServerController.php
+PROTECT9	PROTECT9 (ANTI INTIP APIKEY)	/var/www/pterodactyl/app/Http/Controllers/Admin/ApiController.php
+PROTECT1	PROTECT10 (ANTI CREATE CAPIKEY)	/var/www/pterodactyl/app/Http/Controllers/Api/Client/ApiKeyController.php
+PROTECT1	PROTECT11 (ANTI INTIP DATABASE)	/var/www/pterodactyl/app/Http/Controllers/Admin/DatabaseController.php
+PROTECT1	PROTECT12 (ANTI INTIP MOUNTS)	/var/www/pterodactyl/app/Http/Controllers/Admin/MountController.php
+PROTECT1	PROTECT13 (ANTI BUTTON TWO FACTOR)	/var/www/pterodactyl/app/Http/Controllers/Api/Client/TwoFactorController.php
+PROTECT1	PROTECT14 (𝗠𝗘𝗡𝗚𝗛𝗜𝗟𝗔𝗡𝗚𝗞𝗔𝗡 𝗕𝗔𝗥 𝗠𝗘𝗡𝗨 “𝗡𝗢𝗗𝗘𝗦, 𝗟𝗢𝗖𝗔𝗧𝗜𝗢𝗡𝗦, 𝗗𝗔𝗧𝗔𝗕𝗔𝗦𝗘, 𝗦𝗘𝗧𝗧𝗜𝗡𝗚𝗦, 𝗔𝗣𝗣𝗟𝗜𝗖𝗔𝗧𝗜𝗢𝗡 𝗔𝗣𝗜, 𝗠𝗢𝗨𝗡𝗧𝗦, 𝗡𝗘𝗦𝗧)	/var/www/pterodactyl/resources/views/layouts/admin.blade.php
