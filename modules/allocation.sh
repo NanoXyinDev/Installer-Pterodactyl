@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-set -euo pipefail
-allocation_menu(){ while true; do ui_section 'ALLOCATION MANAGER'; printf '  Interface       0.0.0.0\n  Port range      2000 - 2500\n  Total           501 ports\n\n  [01] Validate requested range\n  [02] Check sample ports\n  [00] Back\n\n'; read -r -p '  Select › ' a; case "$a" in 1) ui_warning 'Pterodactyl normally expects the node interface IP; wildcard 0.0.0.0 is not blindly forced.';;2) for p in 2000 2100 2200 2300 2400 2500; do ss -ltn "( sport = :$p )" 2>/dev/null|grep -q LISTEN && ui_warning "Port $p busy" || ui_success "Port $p free"; done;;0|00)return;;*)ui_warning 'Unknown option.';;esac; done; }
