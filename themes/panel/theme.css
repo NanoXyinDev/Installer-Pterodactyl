@@ -1,0 +1,2117 @@
+:root {
+  --zx-bg: #070b14;
+  --zx-bg-2: #0b1220;
+  --zx-surface: rgba(15, 23, 42, .78);
+  --zx-surface-strong: #101a2c;
+  --zx-border: rgba(148, 163, 184, .14);
+  --zx-text: #f8fafc;
+  --zx-muted: #94a3b8;
+  --zx-primary: #8b9cff;
+  --zx-primary-2: #42e8b5;
+  --zx-radius: 16px;
+}
+
+html, body, #app { background: var(--zx-bg) !important; color: var(--zx-text) !important; }
+body {
+  background-image:
+    radial-gradient(circle at 12% 0%, rgba(139,156,255,.16), transparent 30%),
+    radial-gradient(circle at 92% 10%, rgba(66,232,181,.09), transparent 26%),
+    linear-gradient(120deg, rgba(255,255,255,.018) 1px, transparent 1px),
+    linear-gradient(30deg, rgba(255,255,255,.014) 1px, transparent 1px);
+  background-size: auto, auto, 44px 44px, 44px 44px;
+  background-attachment: fixed;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(139,156,255,.06), transparent 42%);
+  animation: zxvGlow 9s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+@keyframes zxvGlow { from { transform: translate3d(-2%, -1%, 0) scale(1); } to { transform: translate3d(2%, 1%, 0) scale(1.06); } }
+@keyframes zxvRise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+* { scrollbar-width: thin; scrollbar-color: #2c3b59 #080d17; }
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-track { background: #080d17; }
+::-webkit-scrollbar-thumb { background: #2c3b59; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #405477; }
+
+a { transition: color .18s ease, opacity .18s ease, transform .18s ease; }
+a:hover { color: var(--zx-primary) !important; }
+
+[class*="bg-gray-"], [class*="bg-neutral-"] { background-color: var(--zx-surface) !important; }
+[class*="border-gray-"], [class*="border-neutral-"] { border-color: var(--zx-border) !important; }
+[class*="text-gray-"], [class*="text-neutral-"] { color: var(--zx-muted) !important; }
+.text-white { color: #fff !important; }
+
+.shadow, .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl { box-shadow: 0 18px 45px rgba(0,0,0,.22) !important; }
+.rounded, .rounded-md, .rounded-lg, .rounded-xl, .rounded-2xl { border-radius: var(--zx-radius) !important; }
+
+input, textarea, select {
+  background: #0a1322 !important;
+  color: var(--zx-text) !important;
+  border-color: var(--zx-border) !important;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: rgba(139,156,255,.72) !important;
+  box-shadow: 0 0 0 3px rgba(139,156,255,.11), 0 0 24px rgba(139,156,255,.08) !important;
+}
+
+button, .btn {
+  border-radius: 11px !important;
+  transition: transform .16s ease, box-shadow .16s ease, filter .16s ease !important;
+}
+button:hover, .btn:hover { transform: translateY(-1px); filter: brightness(1.04); }
+
+.bg-primary-500, .bg-primary-600, .bg-primary-700 { background: linear-gradient(135deg, var(--zx-primary), #6575ee) !important; }
+
+/* subtle entrance animation for cards without changing layout */
+[class*="shadow-"], [class*="rounded-"] { animation: zxvRise .35s ease both; }
+
+.zxvcode-brand { display: inline-flex; align-items: center; gap: 10px; }
+.zxvcode-brand img { width: 28px; height: 28px; filter: drop-shadow(0 0 12px rgba(139,156,255,.35)); }
+
+.zxv-protect-brand{position:fixed;top:0;left:0;z-index:2147483000;height:64px;display:flex;align-items:center;gap:10px;padding:0 22px;pointer-events:none;color:#eef6ff;font-family:Inter,ui-sans-serif,system-ui,sans-serif;background:linear-gradient(90deg,rgba(7,13,25,.98),rgba(7,13,25,.78),transparent);min-width:245px}
+.zxv-protect-brand img{width:38px;height:38px;display:block;filter:drop-shadow(0 0 10px rgba(38,144,255,.45))}
+.zxv-protect-brand span{display:flex;flex-direction:column;line-height:1.05;letter-spacing:.05em}
+.zxv-protect-brand strong{font-size:15px;font-weight:800;background:linear-gradient(90deg,#fff,#3ea7ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.zxv-protect-brand small{margin-top:4px;font-size:8px;font-weight:700;color:#8fa9c8;letter-spacing:.18em}
+@media (max-width:760px){.zxv-protect-brand{padding:0 12px;min-width:0}.zxv-protect-brand span{display:none}.zxv-protect-brand img{width:34px;height:34px}}
+
+.zxv-welcome-toast{position:fixed;top:78px;right:20px;z-index:2147482999;width:min(390px,calc(100vw - 40px));display:flex;align-items:center;gap:12px;padding:14px 14px 14px 16px;border:1px solid rgba(99,171,255,.25);border-radius:16px;background:linear-gradient(135deg,rgba(8,18,34,.97),rgba(13,28,50,.94));box-shadow:0 18px 55px rgba(0,0,0,.38),0 0 30px rgba(57,147,255,.10);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);font-family:Inter,ui-sans-serif,system-ui,sans-serif;opacity:0;transform:translate3d(24px,-8px,0) scale(.98);pointer-events:none;visibility:hidden;transition:opacity .26s ease,transform .26s ease,visibility .26s ease}
+.zxv-welcome-toast::after{content:"";position:absolute;left:16px;right:48px;bottom:0;height:2px;border-radius:999px;background:linear-gradient(90deg,#3ea7ff,#42e8b5);transform:scaleX(0);transform-origin:left;opacity:.9}
+.zxv-welcome-toast.is-visible{opacity:1;transform:translate3d(0,0,0) scale(1);pointer-events:auto;visibility:visible}
+.zxv-welcome-toast.is-visible::after{animation:zxvWelcomeTimer 6.5s linear forwards}
+.zxv-welcome-toast.is-closing{opacity:0;transform:translate3d(24px,-8px,0) scale(.98);pointer-events:none}
+.zxv-welcome-icon{width:40px;height:40px;flex:0 0 40px;display:grid;place-items:center;border-radius:12px;background:linear-gradient(135deg,rgba(62,167,255,.18),rgba(66,232,181,.12));border:1px solid rgba(99,171,255,.18);font-size:21px;box-shadow:inset 0 0 18px rgba(62,167,255,.06)}
+.zxv-welcome-copy{min-width:0;display:flex;flex-direction:column;gap:4px;padding-right:4px}
+.zxv-welcome-copy strong{font-size:14px;font-weight:800;color:#f7fbff;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.zxv-welcome-copy span{font-size:10px;font-weight:700;color:#8fa9c8;letter-spacing:.08em;line-height:1.35}
+.zxv-welcome-close{margin-left:auto;width:28px;height:28px;flex:0 0 28px;border:0!important;border-radius:9px!important;background:rgba(255,255,255,.055)!important;color:#a9bad0!important;font-size:19px!important;line-height:1!important;cursor:pointer;display:grid;place-items:center;box-shadow:none!important;transform:none!important;filter:none!important}
+.zxv-welcome-close:hover{background:rgba(255,255,255,.11)!important;color:#fff!important;transform:none!important}
+@keyframes zxvWelcomeTimer{to{transform:scaleX(1)}}
+@media (max-width:760px){.zxv-welcome-toast{top:70px;left:12px;right:12px;width:auto;padding:12px}.zxv-welcome-copy span{font-size:9px}}
+@media (prefers-reduced-motion:reduce){.zxv-welcome-toast{transition:none}.zxv-welcome-toast.is-visible::after{animation:none;transform:scaleX(1)}}
+
+/* Full-panel coverage: legacy/admin Blade UI */
+body.skin-blue,
+body.hold-transition {
+  background: var(--zx-bg) !important;
+  color: var(--zx-text) !important;
+}
+.skin-blue .main-header .navbar,
+.skin-blue .main-header .logo,
+.skin-blue .main-sidebar,
+.skin-blue .left-side,
+.skin-blue .sidebar-form,
+.skin-blue .content-wrapper,
+.skin-blue .right-side,
+.skin-blue .main-footer {
+  background: var(--zx-bg-2) !important;
+  border-color: var(--zx-border) !important;
+}
+.skin-blue .main-header .logo:hover,
+.skin-blue .main-header .navbar .nav > li > a:hover,
+.skin-blue .main-header .navbar .nav > li > a:focus,
+.skin-blue .sidebar-menu > li > a:hover,
+.skin-blue .sidebar-menu > li.active > a {
+  background: rgba(62,167,255,.12) !important;
+  color: #fff !important;
+}
+.skin-blue .sidebar-menu > li.header,
+.skin-blue .main-header .navbar .nav > li.user-menu > a,
+.skin-blue .main-header .navbar .sidebar-toggle {
+  color: var(--zx-muted) !important;
+}
+.skin-blue .sidebar-menu > li > a,
+.skin-blue .sidebar-menu .treeview-menu > li > a,
+.skin-blue .main-header .navbar .nav > li > a {
+  color: #cbd5e1 !important;
+}
+.skin-blue .sidebar-menu > li.active > a,
+.skin-blue .sidebar-menu > li > a:hover {
+  border-left-color: var(--zx-primary) !important;
+}
+.skin-blue .sidebar-menu .treeview-menu > li.active > a,
+.skin-blue .sidebar-menu .treeview-menu > li > a:hover {
+  color: #fff !important;
+  background: rgba(62,167,255,.08) !important;
+}
+.skin-blue .box,
+.skin-blue .info-box,
+.skin-blue .small-box,
+.skin-blue .nav-tabs-custom,
+.skin-blue .panel,
+.skin-blue .well,
+.skin-blue .table-responsive,
+.skin-blue .content,
+.skin-blue .box-footer,
+.skin-blue .box-header,
+.skin-blue .box-body,
+.skin-blue .box-tools {
+  background: var(--zx-surface-strong) !important;
+  color: var(--zx-text) !important;
+  border-color: var(--zx-border) !important;
+}
+.skin-blue .box-title,
+.skin-blue .control-label,
+.skin-blue .form-group label,
+.skin-blue .table > thead > tr > th,
+.skin-blue .table > tbody > tr > td,
+.skin-blue .table > tbody > tr > th {
+  color: #e5edf7 !important;
+  border-color: var(--zx-border) !important;
+}
+.skin-blue .table > tbody > tr:hover,
+.skin-blue .table > tbody > tr:nth-child(odd) {
+  background: rgba(255,255,255,.025) !important;
+}
+.skin-blue .form-control,
+.skin-blue select,
+.skin-blue textarea,
+.skin-blue input[type="text"],
+.skin-blue input[type="email"],
+.skin-blue input[type="password"],
+.skin-blue input[type="number"] {
+  background: #0a1322 !important;
+  color: #f8fafc !important;
+  border-color: var(--zx-border) !important;
+}
+.skin-blue .btn-primary,
+.skin-blue .btn-success,
+.skin-blue .btn-info {
+  border-color: transparent !important;
+  background: linear-gradient(135deg, var(--zx-primary), #6575ee) !important;
+  color: #fff !important;
+}
+.skin-blue .btn-default {
+  background: #111c2f !important;
+  border-color: var(--zx-border) !important;
+  color: #dbe7f5 !important;
+}
+.skin-blue .pagination > li > a,
+.skin-blue .pagination > li > span {
+  background: #0d1727 !important;
+  border-color: var(--zx-border) !important;
+  color: #cbd5e1 !important;
+}
+
+/* Keep content clear of the fixed ZXV mark on narrow layouts. */
+@media (min-width: 768px) {
+  .skin-blue .main-header .logo { padding-left: 255px; text-align: left; }
+}
+
+/* ZXV PROTECT premium administration skin */
+:root {
+  --zx-accent: #3ea7ff;
+  --zx-accent-2: #7c6cff;
+  --zx-success: #42e8b5;
+  --zx-warning: #ffb454;
+  --zx-admin-header: rgba(5, 12, 25, .92);
+  --zx-admin-side: rgba(6, 14, 28, .97);
+  --zx-admin-card: rgba(12, 23, 42, .88);
+}
+
+/* AdminLTE/Pterodactyl administration chrome */
+.skin-blue .main-header {
+  position: relative;
+  z-index: 1035;
+  background: var(--zx-admin-header) !important;
+  box-shadow: 0 10px 35px rgba(0,0,0,.24), inset 0 -1px 0 rgba(99,171,255,.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.skin-blue .main-header .navbar,
+.skin-blue .main-header .logo {
+  background: transparent !important;
+  border: 0 !important;
+}
+.skin-blue .main-header .logo {
+  height: 64px;
+  line-height: 64px;
+  color: #f5fbff !important;
+  font-weight: 850;
+  letter-spacing: .06em;
+  text-shadow: 0 0 24px rgba(62,167,255,.24);
+}
+.skin-blue .main-header .logo::after {
+  content: "ZXV PROTECT";
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 11px;
+  letter-spacing: .16em;
+  color: #72bfff;
+  vertical-align: middle;
+}
+.skin-blue .main-header .navbar .nav > li > a,
+.skin-blue .main-header .navbar .sidebar-toggle {
+  height: 64px;
+  line-height: 64px;
+  color: #a9bdd4 !important;
+  transition: background .2s ease, color .2s ease;
+}
+.skin-blue .main-header .navbar .nav > li > a:hover,
+.skin-blue .main-header .navbar .sidebar-toggle:hover {
+  background: rgba(62,167,255,.09) !important;
+  color: #fff !important;
+}
+
+.skin-blue .main-sidebar,
+.skin-blue .left-side {
+  top: 64px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(62,167,255,.10), transparent 34%),
+    linear-gradient(180deg, rgba(6,14,28,.99), rgba(4,10,21,.99)) !important;
+  box-shadow: 12px 0 40px rgba(0,0,0,.18), inset -1px 0 rgba(99,171,255,.06);
+}
+.skin-blue .sidebar-menu {
+  padding-top: 12px;
+}
+.skin-blue .sidebar-menu > li.header {
+  padding: 13px 15px 8px;
+  color: #607b99 !important;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.skin-blue .sidebar-menu > li > a {
+  margin: 3px 10px;
+  padding: 12px 14px;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  color: #aebfd3 !important;
+  transition: all .18s ease;
+}
+.skin-blue .sidebar-menu > li > a > .fa,
+.skin-blue .sidebar-menu > li > a > .glyphicon,
+.skin-blue .sidebar-menu > li > a > .ion {
+  width: 24px;
+  color: #6f8eaf !important;
+  transition: color .18s ease, transform .18s ease;
+}
+.skin-blue .sidebar-menu > li > a:hover {
+  margin-left: 10px;
+  background: linear-gradient(90deg, rgba(62,167,255,.13), rgba(124,108,255,.05)) !important;
+  border-color: rgba(62,167,255,.12);
+  color: #f4f9ff !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,.15);
+}
+.skin-blue .sidebar-menu > li > a:hover > .fa,
+.skin-blue .sidebar-menu > li > a:hover > .glyphicon,
+.skin-blue .sidebar-menu > li > a:hover > .ion {
+  color: #67baff !important;
+  transform: translateX(2px);
+}
+.skin-blue .sidebar-menu > li.active > a,
+.skin-blue .sidebar-menu > li.menu-open > a {
+  background: linear-gradient(100deg, rgba(62,167,255,.20), rgba(124,108,255,.10)) !important;
+  border-color: rgba(62,167,255,.18) !important;
+  color: #fff !important;
+  box-shadow: inset 3px 0 #3ea7ff, 0 8px 25px rgba(0,0,0,.14);
+}
+.skin-blue .sidebar-menu > li.active > a > .fa,
+.skin-blue .sidebar-menu > li.active > a > .glyphicon,
+.skin-blue .sidebar-menu > li.active > a > .ion {
+  color: #73c1ff !important;
+}
+
+.skin-blue .content-wrapper,
+.skin-blue .right-side {
+  min-height: calc(100vh - 64px) !important;
+  background:
+    radial-gradient(circle at 70% 0%, rgba(124,108,255,.07), transparent 25%),
+    radial-gradient(circle at 30% 0%, rgba(62,167,255,.06), transparent 22%),
+    #070d19 !important;
+}
+.skin-blue .content-header {
+  padding: 22px 24px 12px;
+}
+.skin-blue .content-header > h1,
+.skin-blue .content-header .breadcrumb {
+  color: #edf5ff !important;
+}
+.skin-blue .content-header > h1 {
+  font-size: 23px;
+  font-weight: 750;
+  letter-spacing: -.02em;
+}
+.skin-blue .breadcrumb {
+  background: transparent !important;
+  color: #6e89a7 !important;
+}
+.skin-blue .breadcrumb > li + li:before { color: #425975 !important; }
+.skin-blue .content {
+  padding: 0 24px 24px;
+}
+
+.skin-blue .box,
+.skin-blue .panel,
+.skin-blue .nav-tabs-custom,
+.skin-blue .well,
+.skin-blue .info-box,
+.skin-blue .small-box {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(148,163,184,.10) !important;
+  border-radius: 16px !important;
+  background: linear-gradient(145deg, rgba(15,28,48,.92), rgba(9,18,33,.94)) !important;
+  box-shadow: 0 18px 45px rgba(0,0,0,.20), inset 0 1px rgba(255,255,255,.018) !important;
+}
+.skin-blue .box::before,
+.skin-blue .panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(62,167,255,.45), rgba(124,108,255,.25), transparent);
+  pointer-events: none;
+}
+.skin-blue .box-header,
+.skin-blue .panel-heading,
+.skin-blue .box-footer,
+.skin-blue .panel-footer {
+  background: rgba(255,255,255,.015) !important;
+  border-color: rgba(148,163,184,.09) !important;
+}
+.skin-blue .box-title,
+.skin-blue .panel-title,
+.skin-blue .control-label {
+  color: #e9f2fc !important;
+  font-weight: 700;
+}
+
+.skin-blue .table {
+  color: #cbd8e7 !important;
+  background: transparent !important;
+}
+.skin-blue .table > thead > tr > th {
+  color: #7892af !important;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .10em;
+  background: rgba(255,255,255,.018) !important;
+}
+.skin-blue .table > tbody > tr > td,
+.skin-blue .table > tbody > tr > th {
+  border-top-color: rgba(148,163,184,.08) !important;
+}
+.skin-blue .table > tbody > tr:hover {
+  background: rgba(62,167,255,.045) !important;
+}
+
+.skin-blue .form-control {
+  min-height: 40px;
+  border-radius: 10px !important;
+  box-shadow: inset 0 1px 10px rgba(0,0,0,.12) !important;
+}
+.skin-blue .form-control::placeholder { color: #536d89 !important; }
+.skin-blue .form-control:focus {
+  border-color: rgba(62,167,255,.65) !important;
+  box-shadow: 0 0 0 3px rgba(62,167,255,.09), 0 0 28px rgba(62,167,255,.06) !important;
+}
+.skin-blue .btn {
+  min-height: 38px;
+  border-radius: 10px !important;
+  font-weight: 700;
+  letter-spacing: .01em;
+}
+.skin-blue .btn-primary,
+.skin-blue .btn-success,
+.skin-blue .btn-info {
+  background: linear-gradient(135deg, #3ea7ff, #7168ff) !important;
+  box-shadow: 0 8px 22px rgba(62,167,255,.15) !important;
+}
+.skin-blue .btn-danger {
+  background: linear-gradient(135deg, #e65a72, #9f3850) !important;
+  border-color: transparent !important;
+}
+.skin-blue .btn-warning {
+  background: linear-gradient(135deg, #ffb454, #e68a3c) !important;
+  border-color: transparent !important;
+}
+
+.skin-blue .main-footer {
+  background: rgba(5,12,24,.92) !important;
+  color: #5f7894 !important;
+  border-top: 1px solid rgba(148,163,184,.08) !important;
+}
+.skin-blue .main-footer a { color: #55adff !important; }
+
+/* Small premium status rail on the admin side */
+.zxv-protect-brand::after {
+  content: "PROTECTED";
+  position: absolute;
+  left: 22px;
+  top: 53px;
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: .20em;
+  color: #42e8b5;
+  opacity: .82;
+}
+
+@media (max-width: 767px) {
+  .skin-blue .main-header .logo { padding-left: 15px !important; }
+  .skin-blue .main-header .logo::after { display: none; }
+  .skin-blue .content-header { padding: 18px 14px 10px; }
+  .skin-blue .content { padding: 0 14px 18px; }
+  .skin-blue .main-sidebar { top: 50px; }
+}
+
+
+/* ZXV PROTECT — premium server workspace skin.
+ * Scoped to /server/* so administration and account pages keep their own layout.
+ * Designed around the current React/Tailwind server workspace used by Pterodactyl 1.15.x.
+ */
+body.zxv-server-theme {
+  --zx-server-bg: #050a13;
+  --zx-server-panel: rgba(11, 20, 35, .90);
+  --zx-server-panel-2: rgba(15, 27, 46, .82);
+  --zx-server-line: rgba(113, 165, 214, .14);
+  --zx-server-blue: #45a9ff;
+  --zx-server-violet: #766dff;
+  --zx-server-green: #40e0a0;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(69,169,255,.12), transparent 27%),
+    radial-gradient(circle at 92% 8%, rgba(118,109,255,.11), transparent 25%),
+    linear-gradient(180deg, #070d18 0%, #050a13 72%, #040811 100%) !important;
+}
+body.zxv-server-theme #app {
+  background: transparent !important;
+  min-height: 100vh;
+}
+body.zxv-server-theme #app > div {
+  background: transparent !important;
+}
+
+/* Server navigation / tab bars */
+body.zxv-server-theme nav,
+body.zxv-server-theme [role="tablist"] {
+  border-color: var(--zx-server-line) !important;
+}
+body.zxv-server-theme nav a,
+body.zxv-server-theme [role="tablist"] a,
+body.zxv-server-theme [role="tablist"] button {
+  border-color: transparent !important;
+  color: #8fa7c2 !important;
+  transition: color .18s ease, background .18s ease, box-shadow .18s ease, transform .18s ease !important;
+}
+body.zxv-server-theme nav a:hover,
+body.zxv-server-theme [role="tablist"] a:hover,
+body.zxv-server-theme [role="tablist"] button:hover {
+  color: #eef7ff !important;
+  background: rgba(69,169,255,.07) !important;
+}
+body.zxv-server-theme nav a[class*="border-primary"],
+body.zxv-server-theme nav a[class*="text-primary"],
+body.zxv-server-theme [role="tablist"] [aria-selected="true"] {
+  color: #fff !important;
+  border-color: var(--zx-server-blue) !important;
+  box-shadow: 0 8px 25px rgba(69,169,255,.10), inset 0 -2px var(--zx-server-blue) !important;
+}
+
+/* Server overview cards and resource blocks */
+body.zxv-server-theme [class*="bg-gray-800"],
+body.zxv-server-theme [class*="bg-gray-900"],
+body.zxv-server-theme [class*="bg-neutral-800"],
+body.zxv-server-theme [class*="bg-neutral-900"],
+body.zxv-server-theme [class*="bg-secondary"] {
+  background: linear-gradient(145deg, var(--zx-server-panel-2), rgba(8,16,29,.94)) !important;
+  border-color: var(--zx-server-line) !important;
+}
+body.zxv-server-theme [class*="border-gray-700"],
+body.zxv-server-theme [class*="border-gray-800"],
+body.zxv-server-theme [class*="border-neutral-700"],
+body.zxv-server-theme [class*="border-neutral-800"] {
+  border-color: var(--zx-server-line) !important;
+}
+body.zxv-server-theme [class*="rounded-lg"],
+body.zxv-server-theme [class*="rounded-xl"],
+body.zxv-server-theme [class*="rounded-2xl"] {
+  box-shadow: 0 16px 40px rgba(0,0,0,.16), inset 0 1px rgba(255,255,255,.015) !important;
+}
+body.zxv-server-theme [class*="shadow"] {
+  box-shadow: 0 16px 40px rgba(0,0,0,.20) !important;
+}
+
+/* Server resource bars: CPU, RAM and disk */
+body.zxv-server-theme [role="progressbar"] {
+  overflow: hidden !important;
+  border: 1px solid rgba(113,165,214,.12) !important;
+  background: rgba(255,255,255,.055) !important;
+  box-shadow: inset 0 2px 8px rgba(0,0,0,.20) !important;
+}
+body.zxv-server-theme [role="progressbar"] > div {
+  background: linear-gradient(90deg, var(--zx-server-blue), var(--zx-server-violet)) !important;
+  box-shadow: 0 0 18px rgba(69,169,255,.24) !important;
+}
+body.zxv-server-theme [class*="bg-green-500"] > div,
+body.zxv-server-theme [class*="bg-green-600"] > div {
+  background: linear-gradient(90deg, #35cf91, #54edb0) !important;
+}
+
+/* Console: darker terminal, cleaner chrome, readable output. */
+body.zxv-server-theme .xterm,
+body.zxv-server-theme .xterm-viewport,
+body.zxv-server-theme .xterm-screen,
+body.zxv-server-theme [class*="xterm"] {
+  background: #02060c !important;
+}
+body.zxv-server-theme .xterm {
+  padding: 12px !important;
+  border: 1px solid rgba(69,169,255,.14) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 22px 60px rgba(0,0,0,.34), inset 0 0 40px rgba(69,169,255,.025) !important;
+}
+body.zxv-server-theme .xterm-viewport::-webkit-scrollbar-thumb {
+  background: #203b5a !important;
+}
+
+/* File manager, tables and list rows */
+body.zxv-server-theme table {
+  border-color: var(--zx-server-line) !important;
+  background: transparent !important;
+}
+body.zxv-server-theme th {
+  color: #718ba8 !important;
+  background: rgba(255,255,255,.018) !important;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: .70rem;
+}
+body.zxv-server-theme td {
+  border-color: rgba(113,165,214,.08) !important;
+}
+body.zxv-server-theme tbody tr:hover,
+body.zxv-server-theme [class*="hover\\:bg-gray"]:hover {
+  background: rgba(69,169,255,.055) !important;
+}
+
+/* Server forms, editor and search controls */
+body.zxv-server-theme input,
+body.zxv-server-theme textarea,
+body.zxv-server-theme select {
+  background: rgba(4,11,20,.88) !important;
+  color: #eef6ff !important;
+  border-color: var(--zx-server-line) !important;
+  box-shadow: inset 0 1px 12px rgba(0,0,0,.13) !important;
+}
+body.zxv-server-theme input:focus,
+body.zxv-server-theme textarea:focus,
+body.zxv-server-theme select:focus {
+  border-color: rgba(69,169,255,.62) !important;
+  box-shadow: 0 0 0 3px rgba(69,169,255,.09), 0 0 28px rgba(69,169,255,.07) !important;
+}
+body.zxv-server-theme button:not([aria-label="Tutup notifikasi"]) {
+  border-color: rgba(113,165,214,.14) !important;
+}
+body.zxv-server-theme button:hover {
+  filter: brightness(1.06);
+}
+body.zxv-server-theme [class*="bg-primary-500"],
+body.zxv-server-theme [class*="bg-primary-600"],
+body.zxv-server-theme [class*="bg-primary-700"] {
+  background: linear-gradient(135deg, var(--zx-server-blue), var(--zx-server-violet)) !important;
+  box-shadow: 0 9px 24px rgba(69,169,255,.14) !important;
+}
+
+/* Server page headings and status badges */
+body.zxv-server-theme h1,
+body.zxv-server-theme h2,
+body.zxv-server-theme h3,
+body.zxv-server-theme h4 {
+  color: #f1f7ff !important;
+}
+body.zxv-server-theme [class*="text-gray-400"],
+body.zxv-server-theme [class*="text-gray-500"],
+body.zxv-server-theme [class*="text-gray-600"] {
+  color: #8299b3 !important;
+}
+body.zxv-server-theme [class*="bg-green-500"],
+body.zxv-server-theme [class*="bg-green-600"] {
+  box-shadow: 0 0 18px rgba(64,224,160,.12) !important;
+}
+
+/* A slim server-workspace identity rail, not a new image or overlay. */
+body.zxv-server-theme::after {
+  content: "ZXV PROTECT  •  SERVER WORKSPACE";
+  position: fixed;
+  left: 50%;
+  bottom: 9px;
+  transform: translateX(-50%);
+  z-index: 30;
+  padding: 5px 10px;
+  border: 1px solid rgba(69,169,255,.10);
+  border-radius: 999px;
+  background: rgba(4,10,18,.72);
+  color: rgba(132,164,197,.72);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  pointer-events: none;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+@media (max-width: 767px) {
+  body.zxv-server-theme::after { display: none; }
+  body.zxv-server-theme .xterm { padding: 7px !important; border-radius: 10px !important; }
+}
+
+/* Premium client dashboard / server list workspace.
+ * The current Pterodactyl frontend is React + Tailwind, so this layer intentionally
+ * styles the rendered dashboard cards without replacing React components or assets.
+ */
+body.zxv-dashboard-theme {
+  --zx-dash-bg: #050a13;
+  --zx-dash-card: rgba(13, 25, 43, .88);
+  --zx-dash-card-2: rgba(18, 34, 55, .92);
+  --zx-dash-line: rgba(91, 157, 215, .16);
+  --zx-dash-blue: #49a9ff;
+  --zx-dash-violet: #766cff;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(73,169,255,.12), transparent 27%),
+    radial-gradient(circle at 88% 4%, rgba(118,108,255,.11), transparent 24%),
+    linear-gradient(180deg, #050a13 0%, #070d18 55%, #050a12 100%) !important;
+}
+body.zxv-dashboard-theme #app {
+  background: transparent !important;
+}
+body.zxv-dashboard-theme #app > div {
+  background: transparent !important;
+}
+body.zxv-dashboard-theme main {
+  position: relative;
+}
+body.zxv-dashboard-theme main > div {
+  animation: zxvRise .35s ease both;
+}
+
+/* Dashboard server cards. */
+body.zxv-dashboard-theme [class*="bg-gray-700"],
+body.zxv-dashboard-theme [class*="bg-gray-800"],
+body.zxv-dashboard-theme [class*="bg-gray-900"],
+body.zxv-dashboard-theme [class*="bg-neutral-700"],
+body.zxv-dashboard-theme [class*="bg-neutral-800"],
+body.zxv-dashboard-theme [class*="bg-neutral-900"] {
+  background: linear-gradient(135deg, var(--zx-dash-card-2), var(--zx-dash-card)) !important;
+  border-color: var(--zx-dash-line) !important;
+}
+body.zxv-dashboard-theme a[class*="bg-"],
+body.zxv-dashboard-theme main a[class*="rounded"] {
+  border-color: var(--zx-dash-line) !important;
+}
+body.zxv-dashboard-theme main a[class*="rounded"] {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 18px 42px rgba(0,0,0,.18), inset 0 1px rgba(255,255,255,.025) !important;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease !important;
+}
+body.zxv-dashboard-theme main a[class*="rounded"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(110deg, rgba(73,169,255,.07), transparent 32%, rgba(118,108,255,.055));
+  opacity: .9;
+}
+body.zxv-dashboard-theme main a[class*="rounded"]:hover {
+  transform: translateY(-2px);
+  border-color: rgba(73,169,255,.34) !important;
+  box-shadow: 0 22px 52px rgba(0,0,0,.25), 0 0 28px rgba(73,169,255,.07) !important;
+}
+
+/* Server name / address / resource metadata. */
+body.zxv-dashboard-theme main a[class*="rounded"] h2,
+body.zxv-dashboard-theme main a[class*="rounded"] h3 {
+  color: #f1f7ff !important;
+  letter-spacing: -.01em;
+}
+body.zxv-dashboard-theme main a[class*="rounded"] [class*="text-gray-300"],
+body.zxv-dashboard-theme main a[class*="rounded"] [class*="text-gray-400"],
+body.zxv-dashboard-theme main a[class*="rounded"] [class*="text-gray-500"] {
+  color: #8198b1 !important;
+}
+body.zxv-dashboard-theme main a[class*="rounded"] [role="progressbar"] {
+  background: rgba(255,255,255,.055) !important;
+  border: 1px solid rgba(113,165,214,.10) !important;
+  overflow: hidden !important;
+}
+body.zxv-dashboard-theme main a[class*="rounded"] [role="progressbar"] > div {
+  background: linear-gradient(90deg, var(--zx-dash-blue), var(--zx-dash-violet)) !important;
+  box-shadow: 0 0 15px rgba(73,169,255,.22) !important;
+}
+
+/* Server icon/status chip. */
+body.zxv-dashboard-theme main a[class*="rounded"] img {
+  border-radius: 14px !important;
+  box-shadow: 0 0 0 1px rgba(115,175,225,.13), 0 10px 28px rgba(0,0,0,.18) !important;
+}
+body.zxv-dashboard-theme main a[class*="rounded"] [class*="rounded-full"] {
+  border-color: rgba(255,255,255,.08) !important;
+}
+
+/* Dashboard search/toggle controls. */
+body.zxv-dashboard-theme input,
+body.zxv-dashboard-theme textarea,
+body.zxv-dashboard-theme select {
+  background: rgba(5,12,22,.88) !important;
+  color: #edf6ff !important;
+  border-color: var(--zx-dash-line) !important;
+}
+body.zxv-dashboard-theme input:focus,
+body.zxv-dashboard-theme textarea:focus,
+body.zxv-dashboard-theme select:focus {
+  border-color: rgba(73,169,255,.58) !important;
+  box-shadow: 0 0 0 3px rgba(73,169,255,.09), 0 0 24px rgba(73,169,255,.07) !important;
+}
+body.zxv-dashboard-theme button {
+  transition: transform .16s ease, filter .16s ease, box-shadow .16s ease !important;
+}
+body.zxv-dashboard-theme button:hover {
+  filter: brightness(1.05);
+}
+body.zxv-dashboard-theme [class*="bg-primary-500"],
+body.zxv-dashboard-theme [class*="bg-primary-600"],
+body.zxv-dashboard-theme [class*="bg-primary-700"] {
+  background: linear-gradient(135deg, var(--zx-dash-blue), var(--zx-dash-violet)) !important;
+  box-shadow: 0 10px 26px rgba(73,169,255,.12) !important;
+}
+
+/* Compact top navigation identity without touching React behavior. */
+body.zxv-dashboard-theme header {
+  background: rgba(5,11,21,.84) !important;
+  border-color: rgba(91,157,215,.10) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+body.zxv-dashboard-theme header a,
+body.zxv-dashboard-theme header button {
+  color: #9fb3c9 !important;
+}
+body.zxv-dashboard-theme header a:hover,
+body.zxv-dashboard-theme header button:hover {
+  color: #fff !important;
+}
+
+/* The existing Pterodactyl title is retained as accessible text but visually gives
+ * way to the ZXV identity on the client dashboard. */
+body.zxv-dashboard-theme header [class*="text-2xl"],
+body.zxv-dashboard-theme header [class*="text-xl"] {
+  text-shadow: 0 0 24px rgba(73,169,255,.14);
+}
+
+@media (max-width: 767px) {
+  body.zxv-dashboard-theme main a[class*="rounded"] {
+    box-shadow: 0 12px 28px rgba(0,0,0,.18) !important;
+  }
+}
+
+
+/* Dashboard refinement: stable hooks added by the installer make the React/Tailwind
+ * server list resilient to utility-class changes and SPA re-renders. */
+body.zxv-dashboard-theme::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: 320px;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 18% 5%, rgba(41,156,255,.16), transparent 30%),
+    radial-gradient(circle at 82% 0%, rgba(113,77,255,.16), transparent 28%),
+    linear-gradient(180deg, rgba(8,19,38,.34), transparent);
+}
+body.zxv-dashboard-theme #app,
+body.zxv-dashboard-theme #app > div,
+body.zxv-dashboard-theme main {
+  position: relative;
+  z-index: 1;
+}
+body.zxv-dashboard-theme main a.zxv-server-card {
+  display: block;
+  min-height: 116px;
+  border: 1px solid rgba(72,157,232,.20) !important;
+  border-left: 3px solid rgba(55,174,255,.90) !important;
+  border-radius: 16px !important;
+  background:
+    linear-gradient(105deg, rgba(8,21,39,.97), rgba(10,26,47,.90) 55%, rgba(10,18,34,.96)) !important;
+  box-shadow:
+    0 16px 40px rgba(0,0,0,.22),
+    inset 0 1px rgba(255,255,255,.035),
+    inset 0 -1px rgba(0,0,0,.32) !important;
+}
+body.zxv-dashboard-theme main a.zxv-server-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  border-radius: 99px;
+  background: linear-gradient(180deg, #2edbff, #695cff);
+  box-shadow: 0 0 18px rgba(46,219,255,.42);
+  pointer-events: none;
+}
+body.zxv-dashboard-theme main a.zxv-server-card:hover {
+  transform: translateY(-3px) scale(1.002);
+  border-color: rgba(71,181,255,.48) !important;
+  box-shadow:
+    0 22px 54px rgba(0,0,0,.30),
+    0 0 30px rgba(49,154,255,.10),
+    inset 0 1px rgba(255,255,255,.055) !important;
+}
+body.zxv-dashboard-theme main a.zxv-server-card [class*="bg-green-"],
+body.zxv-dashboard-theme main a.zxv-server-card [class*="text-green-"] {
+  text-shadow: 0 0 12px rgba(52,225,156,.25);
+}
+body.zxv-dashboard-theme main a.zxv-server-card [role="progressbar"] {
+  height: 7px !important;
+  border-radius: 999px !important;
+}
+body.zxv-dashboard-theme main a.zxv-server-card [role="progressbar"] > div {
+  min-width: 2px;
+  border-radius: inherit !important;
+  background: linear-gradient(90deg, #25d7ff, #7164ff) !important;
+}
+body.zxv-dashboard-theme .zxv-dashboard-control {
+  min-height: 42px;
+  border-radius: 12px !important;
+  box-shadow: inset 0 1px 18px rgba(0,0,0,.18) !important;
+}
+body.zxv-dashboard-theme main button,
+body.zxv-dashboard-theme main a[class*="rounded"] {
+  -webkit-tap-highlight-color: transparent;
+}
+body.zxv-dashboard-theme main > div:first-child h1,
+body.zxv-dashboard-theme main > div:first-child h2 {
+  letter-spacing: -.025em;
+}
+@media (max-width: 900px) {
+  body.zxv-dashboard-theme main a.zxv-server-card {
+    min-height: 104px;
+  }
+}
+
+/* ================================================================
+   ZXV PROTECT — PRO UI REFRESH
+   A restrained SaaS-style layer: depth, hierarchy, status, charts,
+   focus states and responsive behavior without replacing React UI.
+   ================================================================ */
+:root {
+  --zxv-bg-0: #050812;
+  --zxv-bg-1: #09111f;
+  --zxv-bg-2: #0d1727;
+  --zxv-surface: rgba(14, 24, 41, .80);
+  --zxv-surface-solid: #0f1a2c;
+  --zxv-line: rgba(137, 173, 214, .14);
+  --zxv-line-strong: rgba(89, 169, 255, .28);
+  --zxv-text-1: #f5f8ff;
+  --zxv-text-2: #a6bad2;
+  --zxv-text-3: #6f86a1;
+  --zxv-blue: #48a9ff;
+  --zxv-violet: #7c70ff;
+  --zxv-cyan: #35d8ff;
+  --zxv-green: #35d49a;
+  --zxv-red: #ff5d6c;
+  --zxv-amber: #ffbf5c;
+}
+
+html { background: var(--zxv-bg-0) !important; }
+body {
+  color: var(--zxv-text-1) !important;
+  background: radial-gradient(circle at 50% -15%, rgba(57,129,220,.09), transparent 38%), var(--zxv-bg-0) !important;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+body, button, input, select, textarea { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important; }
+button, a, input, select, textarea { transition: border-color .18s ease, background-color .18s ease, box-shadow .18s ease, transform .18s ease, color .18s ease, opacity .18s ease !important; }
+::selection { background: rgba(72,169,255,.30); color: #fff; }
+
+/* Shared surface language across React and legacy/admin screens. */
+body.zxv-server-theme [class*="bg-gray-700"],
+body.zxv-server-theme [class*="bg-gray-800"],
+body.zxv-server-theme [class*="bg-gray-900"],
+body.zxv-dashboard-theme [class*="bg-gray-700"],
+body.zxv-dashboard-theme [class*="bg-gray-800"],
+body.zxv-dashboard-theme [class*="bg-gray-900"] {
+  background: linear-gradient(180deg, rgba(17,30,51,.92), rgba(11,20,35,.88)) !important;
+  border-color: var(--zxv-line) !important;
+}
+body.zxv-server-theme [class*="border-gray-700"],
+body.zxv-server-theme [class*="border-gray-800"],
+body.zxv-dashboard-theme [class*="border-gray-700"],
+body.zxv-dashboard-theme [class*="border-gray-800"] {
+  border-color: var(--zxv-line) !important;
+}
+
+/* More polished controls. */
+body.zxv-server-theme input,
+body.zxv-server-theme select,
+body.zxv-server-theme textarea,
+body.zxv-dashboard-theme input,
+body.zxv-dashboard-theme select,
+body.zxv-dashboard-theme textarea {
+  min-height: 42px;
+  border-radius: 10px !important;
+  background: rgba(5, 13, 24, .82) !important;
+  border: 1px solid var(--zxv-line) !important;
+  color: var(--zxv-text-1) !important;
+}
+body.zxv-server-theme input::placeholder,
+body.zxv-dashboard-theme input::placeholder,
+body.zxv-server-theme textarea::placeholder,
+body.zxv-dashboard-theme textarea::placeholder { color: #5f7792 !important; }
+body.zxv-server-theme input:focus,
+body.zxv-server-theme select:focus,
+body.zxv-server-theme textarea:focus,
+body.zxv-dashboard-theme input:focus,
+body.zxv-dashboard-theme select:focus,
+body.zxv-dashboard-theme textarea:focus {
+  outline: none !important;
+  border-color: rgba(72,169,255,.66) !important;
+  box-shadow: 0 0 0 3px rgba(72,169,255,.09), 0 10px 35px rgba(0,0,0,.14) !important;
+}
+
+/* Dashboard: actual server list cards get a clear status rail and hierarchy. */
+body.zxv-dashboard-theme main a.zxv-server-card {
+  position: relative !important;
+  isolation: isolate;
+  border-radius: 16px !important;
+  border: 1px solid rgba(107, 154, 205, .15) !important;
+  background: linear-gradient(100deg, rgba(12,23,40,.98), rgba(9,18,31,.92)) !important;
+  box-shadow: 0 15px 35px rgba(0,0,0,.20), inset 0 1px rgba(255,255,255,.035) !important;
+  overflow: hidden !important;
+}
+body.zxv-dashboard-theme main a.zxv-server-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  bottom: 12px;
+  width: 3px;
+  border-radius: 0 4px 4px 0;
+  background: linear-gradient(180deg, var(--zxv-blue), var(--zxv-violet));
+  box-shadow: 0 0 18px rgba(72,169,255,.35);
+  z-index: 3;
+}
+body.zxv-dashboard-theme main a.zxv-server-card.zxv-status-online::after,
+body.zxv-dashboard-theme main a.zxv-server-card.zxv-status-running::after { background: linear-gradient(180deg, #32df9a, #28aef6); box-shadow: 0 0 18px rgba(53,212,154,.32); }
+body.zxv-dashboard-theme main a.zxv-server-card.zxv-status-offline::after { background: linear-gradient(180deg, #ff6976, #f03f5a); box-shadow: 0 0 18px rgba(255,93,108,.24); }
+body.zxv-dashboard-theme main a.zxv-server-card:hover {
+  transform: translateY(-3px) !important;
+  border-color: rgba(72,169,255,.38) !important;
+  box-shadow: 0 24px 55px rgba(0,0,0,.26), 0 0 25px rgba(72,169,255,.06) !important;
+}
+body.zxv-dashboard-theme main a.zxv-server-card [role="progressbar"] {
+  height: 7px !important;
+  border-radius: 999px !important;
+  background: rgba(4, 10, 19, .90) !important;
+  border: 1px solid rgba(128, 164, 205, .12) !important;
+  box-shadow: inset 0 1px 5px rgba(0,0,0,.30) !important;
+}
+body.zxv-dashboard-theme main a.zxv-server-card [role="progressbar"] > div {
+  border-radius: inherit !important;
+  background: linear-gradient(90deg, #40b9ff, #7970ff) !important;
+  box-shadow: 0 0 14px rgba(72,169,255,.25) !important;
+}
+body.zxv-dashboard-theme main a.zxv-server-card.zxv-status-offline [role="progressbar"] > div { background: linear-gradient(90deg, #8c4d61, #5e4158) !important; box-shadow: none !important; }
+
+/* Dashboard overview + bar chart injected from live rendered cards. */
+body.zxv-dashboard-theme .zxv-dashboard-overview {
+  margin: 0 0 18px;
+  padding: 18px 20px 16px;
+  border: 1px solid rgba(105, 157, 211, .16);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(124,112,255,.11), transparent 34%),
+    radial-gradient(circle at 0% 100%, rgba(53,216,255,.07), transparent 32%),
+    linear-gradient(145deg, rgba(16,29,49,.92), rgba(8,16,29,.94));
+  box-shadow: 0 18px 45px rgba(0,0,0,.18), inset 0 1px rgba(255,255,255,.03);
+}
+.zxv-dashboard-overview-head { display:flex; align-items:flex-start; justify-content:space-between; gap:18px; }
+.zxv-dashboard-overview-head > div:first-child { display:flex; flex-direction:column; gap:2px; }
+.zxv-dashboard-overview-head strong { font-size: 18px; font-weight: 800; color:#f7faff; }
+.zxv-dashboard-overview-head small { color: #7189a4; font-size: 11px; }
+.zxv-overline { font-size: 9px; font-weight: 900; letter-spacing:.18em; color:#6a92bd; }
+.zxv-dashboard-stats { display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-end; }
+.zxv-dashboard-stats span { display:inline-flex; align-items:center; gap:7px; padding:7px 9px; border:1px solid rgba(110,153,201,.13); border-radius:999px; background:rgba(255,255,255,.025); color:#a7bad0; font-size:10px; font-weight:800; }
+.zxv-dashboard-stats i { width:7px; height:7px; border-radius:999px; background:#778ca5; box-shadow:0 0 9px currentColor; }
+.zxv-dashboard-stats i.is-online { color:#35d49a; background:#35d49a; }
+.zxv-dashboard-stats i.is-offline { color:#ff5d6c; background:#ff5d6c; }
+.zxv-dashboard-stats i.is-total { color:#48a9ff; background:#48a9ff; }
+.zxv-bar-chart { display:flex; align-items:flex-end; gap:12px; min-height:112px; padding-top:18px; overflow:auto; scrollbar-width:thin; }
+.zxv-bar-item { min-width:56px; display:flex; flex-direction:column; align-items:center; gap:6px; }
+.zxv-bar-track { width:34px; height:76px; display:flex; align-items:flex-end; border-radius:10px; padding:4px; background:rgba(3,9,17,.70); border:1px solid rgba(113,158,204,.10); box-shadow:inset 0 2px 8px rgba(0,0,0,.24); }
+.zxv-bar-track span { display:block; width:100%; min-height:6px; border-radius:7px; background:linear-gradient(180deg,#8a78ff,#31b8ff); box-shadow:0 0 14px rgba(72,169,255,.22); }
+.zxv-bar-value { font-size:9px; color:#9eb5cf; font-weight:800; }
+.zxv-bar-item small { max-width:64px; color:#7188a2; font-size:9px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+/* Server workspace from console through settings/files. */
+body.zxv-server-theme #app { background: transparent !important; }
+body.zxv-server-theme .xterm { border:1px solid rgba(93,156,216,.18) !important; border-radius:16px !important; background:#02060b !important; box-shadow: 0 20px 55px rgba(0,0,0,.28), inset 0 0 45px rgba(44,128,219,.035) !important; }
+body.zxv-server-theme .xterm-viewport { background:#02060b !important; }
+body.zxv-server-theme table { overflow:hidden; border-radius:12px; }
+body.zxv-server-theme thead { background:rgba(255,255,255,.018) !important; }
+body.zxv-server-theme tbody tr { border-color:rgba(107,154,205,.09) !important; }
+body.zxv-server-theme tbody tr:hover { background:rgba(72,169,255,.055) !important; }
+body.zxv-server-theme button:not([aria-label="Tutup notifikasi"]) { border-radius:10px !important; }
+body.zxv-server-theme [class*="bg-primary-500"],
+body.zxv-server-theme [class*="bg-primary-600"],
+body.zxv-server-theme [class*="bg-primary-700"] { border-color:transparent !important; }
+body.zxv-server-theme [class*="text-primary"] { color:#66baff !important; }
+
+/* Status surfaces wherever Pterodactyl exposes a status badge. */
+body.zxv-server-theme [class*="bg-green-500"],
+body.zxv-server-theme [class*="bg-green-600"],
+body.zxv-dashboard-theme [class*="bg-green-500"],
+body.zxv-dashboard-theme [class*="bg-green-600"] { box-shadow:0 0 16px rgba(53,212,154,.12) !important; }
+body.zxv-server-theme [class*="bg-red-500"],
+body.zxv-server-theme [class*="bg-red-600"],
+body.zxv-dashboard-theme [class*="bg-red-500"],
+body.zxv-dashboard-theme [class*="bg-red-600"] { box-shadow:0 0 16px rgba(255,93,108,.11) !important; }
+
+/* Legacy/admin: cards, forms, tables, alerts and buttons get the same visual language. */
+.skin-blue .box,
+.skin-blue .panel,
+.skin-blue .well,
+.skin-blue .nav-tabs-custom,
+.skin-blue .info-box,
+.skin-blue .small-box { border:1px solid var(--zxv-line) !important; border-radius:14px !important; box-shadow:0 14px 35px rgba(0,0,0,.16) !important; }
+.skin-blue .form-control,
+.skin-blue select,
+.skin-blue textarea { border-radius:9px !important; min-height:38px; }
+.skin-blue .btn { border-radius:9px !important; font-weight:700; }
+.skin-blue .table > tbody > tr:hover { background:rgba(72,169,255,.045) !important; }
+.skin-blue .alert { border-radius:12px !important; border:1px solid var(--zxv-line) !important; box-shadow:none !important; }
+
+/* Authentication / guest pages. */
+body:not(.zxv-dashboard-theme):not(.zxv-server-theme) [class*="login"],
+body:not(.zxv-dashboard-theme):not(.zxv-server-theme) [class*="auth"] { scrollbar-color:#233b59 #07101c; }
+
+/* Shared scrollbars. */
+* { scrollbar-width: thin; scrollbar-color:#223a58 transparent; }
+*::-webkit-scrollbar { width:8px; height:8px; }
+*::-webkit-scrollbar-track { background:transparent; }
+*::-webkit-scrollbar-thumb { background:#223a58; border-radius:999px; border:2px solid transparent; background-clip:padding-box; }
+*::-webkit-scrollbar-thumb:hover { background:#2e527b; background-clip:padding-box; }
+
+@media (max-width: 900px) {
+  .zxv-dashboard-overview-head { flex-direction:column; }
+  .zxv-dashboard-stats { justify-content:flex-start; }
+  .zxv-bar-chart { gap:10px; }
+}
+@media (max-width: 640px) {
+  body.zxv-dashboard-theme main a.zxv-server-card { border-radius:13px !important; }
+  body.zxv-dashboard-theme .zxv-dashboard-overview { padding:15px; border-radius:14px; }
+  .zxv-bar-chart { min-height:96px; }
+  .zxv-bar-track { height:60px; width:28px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior:auto !important; animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
+}
+
+/* Admin + create-server polish. Keep this layer scoped so the stock Panel remains functional. */
+body.zxv-admin-theme main {
+  --zxv-admin-gap: 16px;
+}
+body.zxv-admin-theme main > div,
+body.zxv-server-create-theme main > div {
+  border-color: rgba(105,157,211,.14) !important;
+}
+body.zxv-admin-theme main [class*="bg-gray-50"],
+body.zxv-admin-theme main [class*="bg-gray-100"],
+body.zxv-admin-theme main [class*="bg-gray-200"],
+body.zxv-server-create-theme main [class*="bg-gray-50"],
+body.zxv-server-create-theme main [class*="bg-gray-100"],
+body.zxv-server-create-theme main [class*="bg-gray-200"] {
+  background: linear-gradient(145deg, rgba(16,29,49,.96), rgba(8,16,29,.96)) !important;
+  color: var(--zxv-text-1) !important;
+}
+body.zxv-admin-theme main [class*="bg-white"],
+body.zxv-server-create-theme main [class*="bg-white"] {
+  background: rgba(12,23,40,.94) !important;
+  border-color: rgba(105,157,211,.15) !important;
+}
+body.zxv-admin-theme main [class*="border-gray"],
+body.zxv-server-create-theme main [class*="border-gray"] {
+  border-color: rgba(105,157,211,.15) !important;
+}
+body.zxv-admin-theme main [class*="shadow"],
+body.zxv-server-create-theme main [class*="shadow"] {
+  box-shadow: 0 16px 38px rgba(0,0,0,.17) !important;
+}
+body.zxv-admin-theme main label,
+body.zxv-server-create-theme main label {
+  color: #b9cbe0 !important;
+  font-weight: 700 !important;
+  letter-spacing: .01em;
+}
+body.zxv-admin-theme main input,
+body.zxv-admin-theme main select,
+body.zxv-admin-theme main textarea,
+body.zxv-server-create-theme main input,
+body.zxv-server-create-theme main select,
+body.zxv-server-create-theme main textarea {
+  min-height: 44px !important;
+  border-radius: 11px !important;
+  background: rgba(4,11,20,.86) !important;
+  border: 1px solid rgba(103,151,201,.18) !important;
+  color: #edf5ff !important;
+  box-shadow: inset 0 1px rgba(255,255,255,.025) !important;
+}
+body.zxv-server-create-theme main textarea { min-height: 100px !important; padding-top: 12px !important; }
+body.zxv-admin-theme main input:focus,
+body.zxv-admin-theme main select:focus,
+body.zxv-admin-theme main textarea:focus,
+body.zxv-server-create-theme main input:focus,
+body.zxv-server-create-theme main select:focus,
+body.zxv-server-create-theme main textarea:focus {
+  border-color: rgba(72,169,255,.72) !important;
+  box-shadow: 0 0 0 3px rgba(72,169,255,.09), 0 10px 30px rgba(0,0,0,.16) !important;
+  outline: none !important;
+}
+body.zxv-admin-theme main button,
+body.zxv-server-create-theme main button,
+body.zxv-admin-theme main a[role="button"],
+body.zxv-server-create-theme main a[role="button"] {
+  border-radius: 10px !important;
+  font-weight: 750 !important;
+  transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease !important;
+}
+body.zxv-admin-theme main button:hover,
+body.zxv-server-create-theme main button:hover,
+body.zxv-admin-theme main a[role="button"]:hover,
+body.zxv-server-create-theme main a[role="button"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.18) !important;
+}
+body.zxv-admin-theme main table,
+body.zxv-server-create-theme main table {
+  border: 1px solid rgba(105,157,211,.13) !important;
+  border-radius: 13px !important;
+  overflow: hidden !important;
+}
+body.zxv-admin-theme main thead,
+body.zxv-server-create-theme main thead { background: rgba(255,255,255,.025) !important; }
+body.zxv-admin-theme main tbody tr,
+body.zxv-server-create-theme main tbody tr { border-color: rgba(105,157,211,.08) !important; }
+body.zxv-admin-theme main tbody tr:hover,
+body.zxv-server-create-theme main tbody tr:hover { background: rgba(72,169,255,.045) !important; }
+
+.zxv-official-badge {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 7px;
+  margin: 8px 10px 8px 12px;
+  padding: 7px 10px;
+  border: 1px solid rgba(72,169,255,.25);
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(32,83,132,.34), rgba(73,62,145,.24));
+  color: #dcecff;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  box-shadow: 0 7px 22px rgba(0,0,0,.14), inset 0 1px rgba(255,255,255,.04);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.zxv-official-badge small { color:#7793b0; font-size:8px; font-weight:700; letter-spacing:.04em; }
+.zxv-official-dot { width:7px; height:7px; border-radius:50%; background:#42d7a0; box-shadow:0 0 11px rgba(66,215,160,.7); }
+
+.zxv-create-banner {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  margin:0 0 18px;
+  padding:16px 18px;
+  border:1px solid rgba(72,169,255,.17);
+  border-radius:16px;
+  background:
+    radial-gradient(circle at 100% 0, rgba(124,112,255,.12), transparent 32%),
+    linear-gradient(135deg, rgba(13,28,48,.96), rgba(7,16,29,.96));
+  box-shadow:0 16px 40px rgba(0,0,0,.18), inset 0 1px rgba(255,255,255,.035);
+}
+.zxv-create-banner > div { display:flex; flex-direction:column; gap:3px; }
+.zxv-create-banner strong { color:#f4f8ff; font-size:17px; }
+.zxv-create-banner small { color:#7289a3; font-size:11px; }
+.zxv-create-chip { padding:7px 10px; border-radius:999px; border:1px solid rgba(72,169,255,.23); color:#8ecbff; background:rgba(72,169,255,.07); font-size:9px; font-weight:900; letter-spacing:.13em; white-space:nowrap; }
+
+.zxv-live-notice {
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:99999;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:230px;
+  padding:11px 13px;
+  border:1px solid rgba(72,169,255,.22);
+  border-radius:13px;
+  background:rgba(7,15,27,.94);
+  backdrop-filter:blur(16px);
+  box-shadow:0 18px 45px rgba(0,0,0,.3), 0 0 28px rgba(72,169,255,.07);
+  opacity:0;
+  transform:translateY(8px);
+  pointer-events:none;
+  transition:opacity .18s ease, transform .18s ease;
+}
+.zxv-live-notice.is-visible { opacity:1; transform:translateY(0); }
+.zxv-live-notice strong { display:block; color:#eef6ff; font-size:10px; letter-spacing:.08em; }
+.zxv-live-notice small { display:block; margin-top:2px; color:#7891ad; font-size:9px; }
+.zxv-notice-dot { width:8px; height:8px; flex:none; border-radius:50%; background:#42d7a0; box-shadow:0 0 13px rgba(66,215,160,.65); }
+
+@media (max-width:640px) {
+  .zxv-create-banner { align-items:flex-start; flex-direction:column; }
+  .zxv-create-chip { align-self:flex-start; }
+  .zxv-live-notice { left:14px; right:14px; bottom:14px; min-width:0; }
+  .zxv-official-badge { margin-left:6px; }
+}
+
+/* Ambient motion: lightweight animated lines, kept behind the panel UI. */
+.zxv-motion-lines {
+  position: fixed;
+  inset: -35%;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .34;
+  transform: rotate(-12deg);
+  background:
+    repeating-linear-gradient(90deg, transparent 0 86px, rgba(79,170,255,.055) 87px, rgba(79,170,255,.055) 88px, transparent 89px 172px),
+    repeating-linear-gradient(0deg, transparent 0 120px, rgba(66,232,181,.035) 121px, rgba(66,232,181,.035) 122px, transparent 123px 244px);
+  mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
+  animation: zxvLinesMove 18s linear infinite;
+}
+
+@keyframes zxvLinesMove {
+  from { transform: translate3d(-2%, -1%, 0) rotate(-12deg); }
+  to { transform: translate3d(2%, 3%, 0) rotate(-12deg); }
+}
+
+.zxv-welcome-toast {
+  border-color: rgba(82, 184, 255, .30);
+  box-shadow: 0 20px 58px rgba(0,0,0,.42), 0 0 34px rgba(62,167,255,.12), inset 0 1px rgba(255,255,255,.04);
+}
+.zxv-welcome-toast::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(110deg, transparent 0 32%, rgba(255,255,255,.07) 42%, transparent 52%);
+  transform: translateX(-110%);
+}
+.zxv-welcome-toast.is-visible::before { animation: zxvWelcomeSweep 1.5s ease .15s both; }
+@keyframes zxvWelcomeSweep { to { transform: translateX(110%); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .zxv-motion-lines { animation: none; }
+  .zxv-welcome-toast.is-visible::before { animation: none; }
+}
+
+/* ZXV FULL MOTION — every visible panel surface gets a small, purposeful animation. */
+@keyframes zxvFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
+@keyframes zxvShimmer { 0% { background-position: 220% 0; } 100% { background-position: -40% 0; } }
+@keyframes zxvPulseLine { 0%,100% { opacity:.35; transform:scaleX(.72); } 50% { opacity:1; transform:scaleX(1); } }
+@keyframes zxvBorderFlow { 0% { background-position:0 0; } 100% { background-position:160px 0; } }
+@keyframes zxvSoftGlow { 0%,100% { box-shadow:0 14px 36px rgba(0,0,0,.18),0 0 0 rgba(72,169,255,0); } 50% { box-shadow:0 18px 42px rgba(0,0,0,.22),0 0 22px rgba(72,169,255,.07); } }
+@keyframes zxvDotPulse { 0%,100% { transform:scale(.82); opacity:.55; } 50% { transform:scale(1.18); opacity:1; } }
+@keyframes zxvTabSweep { from { transform:translateX(-110%); } to { transform:translateX(110%); } }
+
+/* Navigation and tabs */
+body.zxv-dashboard-theme nav a,
+body.zxv-server-theme nav a,
+body.zxv-admin-theme nav a,
+body.zxv-server-theme [role="tab"],
+body.zxv-admin-theme [role="tab"] {
+  position:relative;
+  overflow:hidden;
+  transition:transform .18s ease, color .18s ease, background .18s ease, border-color .18s ease !important;
+}
+body.zxv-dashboard-theme nav a:hover,
+body.zxv-server-theme nav a:hover,
+body.zxv-admin-theme nav a:hover,
+body.zxv-server-theme [role="tab"]:hover,
+body.zxv-admin-theme [role="tab"]:hover { transform:translateY(-1px); }
+body.zxv-dashboard-theme nav a::after,
+body.zxv-server-theme nav a::after,
+body.zxv-admin-theme nav a::after,
+body.zxv-server-theme [role="tab"]::after,
+body.zxv-admin-theme [role="tab"]::after {
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:0; height:1px;
+  background:linear-gradient(90deg,transparent,#48a9ff,transparent);
+  transform:scaleX(0);
+  transition:transform .24s ease;
+}
+body.zxv-dashboard-theme nav a:hover::after,
+body.zxv-server-theme nav a:hover::after,
+body.zxv-admin-theme nav a:hover::after,
+body.zxv-server-theme [role="tab"]:hover::after,
+body.zxv-admin-theme [role="tab"]:hover::after { transform:scaleX(1); }
+
+/* Buttons: hover lift + moving highlight, without changing click behavior. */
+body.zxv-dashboard-theme button,
+body.zxv-dashboard-theme a[role="button"],
+body.zxv-server-theme button,
+body.zxv-server-theme a[role="button"],
+body.zxv-admin-theme main button,
+body.zxv-admin-theme main a[role="button"] {
+  position:relative;
+  overflow:hidden;
+}
+body.zxv-dashboard-theme button::before,
+body.zxv-dashboard-theme a[role="button"]::before,
+body.zxv-server-theme button::before,
+body.zxv-server-theme a[role="button"]::before,
+body.zxv-admin-theme main button::before,
+body.zxv-admin-theme main a[role="button"]::before {
+  content:"";
+  position:absolute;
+  top:0; bottom:0; left:-45%; width:28%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.10),transparent);
+  transform:skewX(-18deg);
+  pointer-events:none;
+  opacity:0;
+}
+body.zxv-dashboard-theme button:hover::before,
+body.zxv-dashboard-theme a[role="button"]:hover::before,
+body.zxv-server-theme button:hover::before,
+body.zxv-server-theme a[role="button"]:hover::before,
+body.zxv-admin-theme main button:hover::before,
+body.zxv-admin-theme main a[role="button"]:hover::before { opacity:1; animation:zxvTabSweep .75s ease both; }
+
+/* Cards and panels */
+body.zxv-dashboard-theme main > *,
+body.zxv-server-theme main > *,
+body.zxv-admin-theme main > *,
+body.zxv-server-create-theme main > * {
+  animation:zxvRise .38s ease both;
+}
+body.zxv-dashboard-theme main > *:nth-child(2),
+body.zxv-server-theme main > *:nth-child(2),
+body.zxv-admin-theme main > *:nth-child(2),
+body.zxv-server-create-theme main > *:nth-child(2) { animation-delay:.035s; }
+body.zxv-dashboard-theme main > *:nth-child(3),
+body.zxv-server-theme main > *:nth-child(3),
+body.zxv-admin-theme main > *:nth-child(3),
+body.zxv-server-create-theme main > *:nth-child(3) { animation-delay:.07s; }
+body.zxv-dashboard-theme main > *:nth-child(4),
+body.zxv-server-theme main > *:nth-child(4),
+body.zxv-admin-theme main > *:nth-child(4),
+body.zxv-server-create-theme main > *:nth-child(4) { animation-delay:.105s; }
+
+body.zxv-dashboard-theme .zxv-server-card,
+body.zxv-dashboard-theme .zxv-dashboard-overview,
+body.zxv-server-theme main [class*="rounded"],
+body.zxv-admin-theme main [class*="rounded"],
+body.zxv-server-create-theme main [class*="rounded"] {
+  position:relative;
+  isolation:isolate;
+}
+body.zxv-dashboard-theme .zxv-server-card::before,
+body.zxv-dashboard-theme .zxv-dashboard-overview::before,
+body.zxv-server-theme main [class*="rounded"]::before,
+body.zxv-admin-theme main [class*="rounded"]::before,
+body.zxv-server-create-theme main [class*="rounded"]::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  pointer-events:none;
+  z-index:-1;
+  background:linear-gradient(105deg,transparent 0 38%,rgba(72,169,255,.055) 48%,transparent 58%);
+  background-size:220% 100%;
+  animation:zxvShimmer 7s linear infinite;
+}
+
+/* Forms, selects and search controls */
+body.zxv-dashboard-theme input,
+body.zxv-dashboard-theme select,
+body.zxv-dashboard-theme textarea,
+body.zxv-server-theme input,
+body.zxv-server-theme select,
+body.zxv-server-theme textarea,
+body.zxv-admin-theme main input,
+body.zxv-admin-theme main select,
+body.zxv-admin-theme main textarea,
+body.zxv-server-create-theme main input,
+body.zxv-server-create-theme main select,
+body.zxv-server-create-theme main textarea {
+  transition:transform .18s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease !important;
+}
+body.zxv-dashboard-theme input:hover,
+body.zxv-dashboard-theme select:hover,
+body.zxv-dashboard-theme textarea:hover,
+body.zxv-server-theme input:hover,
+body.zxv-server-theme select:hover,
+body.zxv-server-theme textarea:hover,
+body.zxv-admin-theme main input:hover,
+body.zxv-admin-theme main select:hover,
+body.zxv-admin-theme main textarea:hover,
+body.zxv-server-create-theme main input:hover,
+body.zxv-server-create-theme main select:hover,
+body.zxv-server-create-theme main textarea:hover { transform:translateY(-1px); }
+
+/* Tables and list rows */
+body.zxv-admin-theme main tbody tr,
+body.zxv-server-create-theme main tbody tr,
+body.zxv-server-theme main tbody tr {
+  transition:transform .16s ease, background .18s ease, box-shadow .18s ease !important;
+}
+body.zxv-admin-theme main tbody tr:hover,
+body.zxv-server-create-theme main tbody tr:hover,
+body.zxv-server-theme main tbody tr:hover { transform:translateX(2px); }
+body.zxv-admin-theme main thead th,
+body.zxv-server-create-theme main thead th,
+body.zxv-server-theme main thead th { position:relative; }
+body.zxv-admin-theme main thead th::after,
+body.zxv-server-create-theme main thead th::after,
+body.zxv-server-theme main thead th::after {
+  content:""; position:absolute; left:10%; right:10%; bottom:0; height:1px;
+  background:linear-gradient(90deg,transparent,#48a9ff,transparent);
+  animation:zxvPulseLine 3s ease-in-out infinite;
+}
+
+/* Server workspace: metrics, console and action controls */
+body.zxv-server-theme .zxv-server-card,
+body.zxv-server-theme [class*="progress"],
+body.zxv-server-theme [role="progressbar"] { transition:transform .2s ease, box-shadow .2s ease, filter .2s ease !important; }
+body.zxv-server-theme [class*="progress"]:hover,
+body.zxv-server-theme [role="progressbar"]:hover { filter:brightness(1.12); }
+body.zxv-server-theme .xterm,
+body.zxv-server-theme .xterm-viewport,
+body.zxv-server-theme pre {
+  box-shadow:inset 0 0 40px rgba(0,0,0,.18), 0 0 24px rgba(72,169,255,.025);
+}
+body.zxv-server-theme .xterm-rows { text-shadow:0 0 7px rgba(83,187,255,.12); }
+
+/* Admin/Create Server: animated sections instead of static blocks. */
+body.zxv-admin-theme main section,
+body.zxv-admin-theme main form,
+body.zxv-admin-theme main article,
+body.zxv-server-create-theme main section,
+body.zxv-server-create-theme main form,
+body.zxv-server-create-theme main article {
+  position:relative;
+}
+body.zxv-admin-theme main section::after,
+body.zxv-admin-theme main form::after,
+body.zxv-server-create-theme main section::after,
+body.zxv-server-create-theme main form::after {
+  content:"";
+  position:absolute;
+  left:14px; right:14px; top:0; height:1px;
+  background:linear-gradient(90deg,transparent,rgba(72,169,255,.45),transparent);
+  transform-origin:center;
+  animation:zxvPulseLine 4s ease-in-out infinite;
+  pointer-events:none;
+}
+.zxv-official-badge { animation:zxvFloat 3.8s ease-in-out infinite, zxvSoftGlow 4.6s ease-in-out infinite; }
+.zxv-official-dot { animation:zxvDotPulse 1.8s ease-in-out infinite; }
+.zxv-create-banner { animation:zxvSoftGlow 5s ease-in-out infinite; }
+.zxv-create-chip { animation:zxvFloat 3.4s ease-in-out infinite; }
+.zxv-live-notice { overflow:hidden; }
+.zxv-live-notice::before {
+  content:""; position:absolute; top:0; bottom:0; left:-35%; width:22%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.09),transparent);
+  transform:skewX(-18deg); animation:zxvTabSweep 3.8s ease-in-out infinite;
+}
+
+/* Resource bars get a moving highlight while retaining their live values. */
+.zxv-bar-track span {
+  position:relative;
+  overflow:hidden;
+}
+.zxv-bar-track span::after {
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.20),transparent);
+  background-size:180% 100%;
+  animation:zxvShimmer 2.8s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.zxv-dashboard-theme main > *, body.zxv-server-theme main > *, body.zxv-admin-theme main > *, body.zxv-server-create-theme main > *,
+  .zxv-official-badge, .zxv-official-dot, .zxv-create-banner, .zxv-create-chip,
+  body.zxv-admin-theme main section::after, body.zxv-admin-theme main form::after,
+  body.zxv-server-create-theme main section::after, body.zxv-server-create-theme main form::after,
+  .zxv-live-notice::before, .zxv-bar-track span::after { animation:none !important; }
+}
+
+/* Dashboard controls: keep the native switch, only improve its label and presentation. */
+body.zxv-dashboard-theme .zxv-other-server-toggle-label {
+  display:inline-flex !important;
+  align-items:center;
+  gap:7px;
+  color:#9db4ce !important;
+  font-size:10px !important;
+  font-weight:800 !important;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  transition:color .2s ease, text-shadow .2s ease;
+}
+body.zxv-dashboard-theme .zxv-other-server-toggle-label:hover {
+  color:#eaf6ff !important;
+  text-shadow:0 0 18px rgba(62,167,255,.28);
+}
+body.zxv-dashboard-theme .zxv-other-server-toggle-label::before {
+  content:"";
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#42d7a0;
+  box-shadow:0 0 12px rgba(66,215,160,.75);
+  animation:zxvDotPulse 1.8s ease-in-out infinite;
+}
+
+/* ZXV CREATE SERVER — premium form + allocation controls. */
+body.zxv-server-create-theme main form {
+  position: relative;
+}
+body.zxv-server-create-theme main .box {
+  position: relative;
+  overflow: visible !important;
+  margin-bottom: 18px !important;
+  border: 1px solid rgba(94, 151, 209, .16) !important;
+  border-radius: 17px !important;
+  background:
+    radial-gradient(circle at 100% 0, rgba(88, 101, 255, .065), transparent 30%),
+    linear-gradient(145deg, rgba(14, 28, 47, .96), rgba(7, 15, 27, .97)) !important;
+  box-shadow: 0 18px 46px rgba(0,0,0,.20), inset 0 1px rgba(255,255,255,.035) !important;
+}
+body.zxv-server-create-theme main .box-header {
+  min-height: 56px;
+  padding: 16px 18px !important;
+  border-bottom: 1px solid rgba(105,157,211,.11) !important;
+  background: linear-gradient(90deg, rgba(72,169,255,.045), transparent 70%) !important;
+}
+body.zxv-server-create-theme main .box-header .box-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #eef6ff !important;
+  font-size: 13px !important;
+  font-weight: 850 !important;
+  letter-spacing: .035em;
+}
+body.zxv-server-create-theme main .box-header .box-title::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  flex: none;
+  border-radius: 50%;
+  background: #48a9ff;
+  box-shadow: 0 0 13px rgba(72,169,255,.62);
+}
+body.zxv-server-create-theme main .box-body {
+  padding: 20px !important;
+}
+body.zxv-server-create-theme main .box-footer {
+  padding: 16px 20px !important;
+  border-top: 1px solid rgba(105,157,211,.10) !important;
+  background: rgba(255,255,255,.012) !important;
+}
+body.zxv-server-create-theme main .form-group {
+  position: relative;
+  margin-bottom: 20px !important;
+}
+body.zxv-server-create-theme main .form-group > label {
+  display: block;
+  margin-bottom: 8px !important;
+  color: #dcecff !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: .025em;
+}
+body.zxv-server-create-theme main .form-group > .small,
+body.zxv-server-create-theme main .form-group > .text-muted {
+  display: block;
+  margin-top: 7px !important;
+  color: #6f87a2 !important;
+  font-size: 10px !important;
+  line-height: 1.55 !important;
+}
+body.zxv-server-create-theme main code {
+  padding: 2px 5px;
+  border: 1px solid rgba(72,169,255,.12);
+  border-radius: 5px;
+  background: rgba(72,169,255,.055);
+  color: #8ccaff;
+}
+body.zxv-server-create-theme main .form-control {
+  min-height: 42px;
+  border: 1px solid rgba(106,151,200,.17) !important;
+  border-radius: 10px !important;
+  background: rgba(3,10,19,.72) !important;
+  color: #eaf4ff !important;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.18) !important;
+}
+body.zxv-server-create-theme main textarea.form-control { min-height: 104px !important; resize: vertical; }
+body.zxv-server-create-theme main .input-group-addon {
+  border: 1px solid rgba(106,151,200,.17) !important;
+  border-left: 0 !important;
+  border-radius: 0 10px 10px 0 !important;
+  background: rgba(72,169,255,.055) !important;
+  color: #7fa4c9 !important;
+}
+body.zxv-server-create-theme main .input-group .form-control { border-radius: 10px 0 0 10px !important; }
+
+/* Allocation: keep Pterodactyl's native Select2 behavior, but make it look like a real control. */
+body.zxv-server-create-theme main #pNodeId,
+body.zxv-server-create-theme main #pAllocation,
+body.zxv-server-create-theme main #pAllocationAdditional,
+body.zxv-server-create-theme main #pNestId,
+body.zxv-server-create-theme main #pEggId,
+body.zxv-server-create-theme main #pDefaultContainer {
+  min-height: 42px !important;
+}
+body.zxv-server-create-theme main .select2-container {
+  width: 100% !important;
+  min-width: 0;
+  font-size: 11px !important;
+}
+body.zxv-server-create-theme main .select2-container .select2-selection--single,
+body.zxv-server-create-theme main .select2-container .select2-selection--multiple {
+  min-height: 42px !important;
+  border: 1px solid rgba(106,151,200,.18) !important;
+  border-radius: 10px !important;
+  background: linear-gradient(145deg, rgba(5,14,25,.94), rgba(10,22,37,.92)) !important;
+  color: #eaf4ff !important;
+  box-shadow: inset 0 1px rgba(255,255,255,.025), 0 7px 20px rgba(0,0,0,.10) !important;
+  transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease !important;
+}
+body.zxv-server-create-theme main .select2-container:hover .select2-selection--single,
+body.zxv-server-create-theme main .select2-container:hover .select2-selection--multiple {
+  transform: translateY(-1px);
+  border-color: rgba(72,169,255,.36) !important;
+  box-shadow: 0 10px 24px rgba(0,0,0,.15), 0 0 18px rgba(72,169,255,.055) !important;
+}
+body.zxv-server-create-theme main .select2-container--open .select2-selection--single,
+body.zxv-server-create-theme main .select2-container--open .select2-selection--multiple {
+  border-color: rgba(72,169,255,.62) !important;
+  box-shadow: 0 0 0 3px rgba(72,169,255,.075), 0 12px 28px rgba(0,0,0,.18) !important;
+}
+body.zxv-server-create-theme main .select2-selection--single .select2-selection__rendered {
+  height: 40px;
+  line-height: 40px !important;
+  padding-left: 13px !important;
+  padding-right: 38px !important;
+  color: #eaf4ff !important;
+  font-weight: 650;
+}
+body.zxv-server-create-theme main .select2-selection--single .select2-selection__placeholder { color: #617991 !important; }
+body.zxv-server-create-theme main .select2-selection--single .select2-selection__arrow {
+  top: 7px !important;
+  right: 7px !important;
+  width: 28px !important;
+  height: 26px !important;
+  border-left: 1px solid rgba(106,151,200,.10);
+}
+body.zxv-server-create-theme main .select2-selection--single .select2-selection__arrow b {
+  border-color: #75bfff transparent transparent transparent !important;
+  margin-left: -4px !important;
+}
+body.zxv-server-create-theme main .select2-selection--multiple {
+  padding: 4px 7px !important;
+}
+body.zxv-server-create-theme main .select2-selection--multiple .select2-selection__rendered {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+body.zxv-server-create-theme main .select2-selection--multiple .select2-selection__choice {
+  margin: 1px 0 !important;
+  padding: 5px 8px 5px 24px !important;
+  border: 1px solid rgba(72,169,255,.19) !important;
+  border-radius: 7px !important;
+  background: linear-gradient(135deg, rgba(72,169,255,.14), rgba(124,112,255,.10)) !important;
+  color: #cce8ff !important;
+  font-size: 10px !important;
+  font-weight: 750;
+}
+body.zxv-server-create-theme main .select2-selection--multiple .select2-selection__choice__remove {
+  top: 4px !important;
+  left: 7px !important;
+  border: 0 !important;
+  color: #72bfff !important;
+}
+body.zxv-server-create-theme main .select2-selection--multiple .select2-search--inline .select2-search__field {
+  min-height: 28px !important;
+  margin-top: 2px !important;
+  color: #dcecff !important;
+}
+body.zxv-server-create-theme .select2-dropdown {
+  z-index: 100050 !important;
+  overflow: hidden;
+  border: 1px solid rgba(72,169,255,.23) !important;
+  border-radius: 11px !important;
+  background: #081321 !important;
+  box-shadow: 0 22px 48px rgba(0,0,0,.38), 0 0 26px rgba(72,169,255,.065) !important;
+}
+body.zxv-server-create-theme .select2-search--dropdown { padding: 8px !important; background: rgba(255,255,255,.018); }
+body.zxv-server-create-theme .select2-search--dropdown .select2-search__field {
+  min-height: 36px !important;
+  border: 1px solid rgba(106,151,200,.16) !important;
+  border-radius: 8px !important;
+  background: #050d18 !important;
+  color: #eaf4ff !important;
+  outline: none !important;
+}
+body.zxv-server-create-theme .select2-results { padding: 5px !important; }
+body.zxv-server-create-theme .select2-results__option {
+  margin: 2px 0;
+  padding: 9px 10px !important;
+  border-radius: 7px;
+  color: #b9cce0 !important;
+  font-size: 10px !important;
+  line-height: 1.35;
+  transition: background .15s ease, color .15s ease, transform .15s ease;
+}
+body.zxv-server-create-theme .select2-results__option[aria-selected="true"] {
+  background: rgba(72,169,255,.105) !important;
+  color: #9ed3ff !important;
+}
+body.zxv-server-create-theme .select2-results__option--highlighted[aria-selected] {
+  background: linear-gradient(90deg, rgba(72,169,255,.19), rgba(124,112,255,.10)) !important;
+  color: #f1f8ff !important;
+  transform: translateX(2px);
+}
+body.zxv-server-create-theme .select2-results__group {
+  padding: 8px 10px 5px !important;
+  color: #6fa8d6 !important;
+  font-size: 9px !important;
+  font-weight: 900 !important;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+}
+
+.zxv-create-section-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: -7px 0 16px;
+  padding: 8px 10px;
+  border: 1px solid rgba(72,169,255,.10);
+  border-radius: 9px;
+  background: rgba(72,169,255,.035);
+  color: #6e8ba8;
+  font-size: 9px;
+  line-height: 1.45;
+}
+.zxv-create-section-note::before {
+  content: "✓";
+  display: inline-grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  flex: none;
+  border-radius: 50%;
+  background: rgba(66,215,160,.09);
+  color: #53d7a2;
+  font-size: 9px;
+  font-weight: 900;
+}
+.zxv-allocation-summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: -4px 0 16px;
+  padding: 8px 10px;
+  border: 1px solid rgba(66,215,160,.10);
+  border-radius: 9px;
+  background: linear-gradient(90deg, rgba(66,215,160,.035), rgba(72,169,255,.025));
+  color: #7d9ab5;
+  font-size: 9px;
+}
+.zxv-allocation-summary strong { color: #bcebd9; font-weight: 850; }
+.zxv-allocation-summary .zxv-allocation-dot { width: 7px; height: 7px; border-radius: 50%; background: #42d7a0; box-shadow: 0 0 10px rgba(66,215,160,.55); }
+body.zxv-server-create-theme main .checkbox label { color:#cfe0f2 !important; }
+body.zxv-server-create-theme main .checkbox label::before { border-radius: 5px !important; border-color: rgba(106,151,200,.28) !important; background: rgba(4,11,20,.75) !important; }
+body.zxv-server-create-theme main .btn-success {
+  min-height: 42px;
+  padding: 0 18px !important;
+  border: 1px solid rgba(66,215,160,.30) !important;
+  border-radius: 10px !important;
+  background: linear-gradient(135deg, rgba(35,184,132,.92), rgba(31,145,181,.92)) !important;
+  box-shadow: 0 10px 24px rgba(25,178,132,.12) !important;
+}
+body.zxv-server-create-theme main .btn-success:hover { box-shadow: 0 14px 30px rgba(25,178,132,.20) !important; }
+@media (max-width: 767px) {
+  body.zxv-server-create-theme main .box-body { padding: 15px !important; }
+  body.zxv-server-create-theme main .form-group[class*="col-"] { width: 100%; }
+  body.zxv-server-create-theme main .box-header { padding: 14px 15px !important; }
+}
+
+/* Welcome notification: one-shot per browser session/day; close button remains clickable. */
+#zxv-welcome-toast .zxv-welcome-close{
+  position:relative!important;
+  z-index:3!important;
+  pointer-events:auto!important;
+  user-select:none;
+  -webkit-tap-highlight-color:transparent;
+}
+#zxv-welcome-toast.is-closing{pointer-events:none!important}
+#zxv-welcome-toast:not(.is-closing) .zxv-welcome-close{pointer-events:auto!important}
+@media (max-width:760px){
+  .zxv-welcome-toast{right:max(12px,env(safe-area-inset-right));left:max(12px,env(safe-area-inset-left));}
+}
+
+
+/* ZXV PROTECT — administration overview identity. */
+body.zxv-admin-theme #zxv-admin-overview-brand {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-height: 72px;
+  margin: 0 0 18px;
+  padding: 12px 14px;
+  overflow: hidden;
+  border: 1px solid rgba(72,169,255,.16);
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 0 50%, rgba(72,169,255,.13), transparent 30%),
+    linear-gradient(135deg, rgba(11,25,43,.94), rgba(5,13,24,.96));
+  box-shadow: 0 16px 38px rgba(0,0,0,.18), inset 0 1px rgba(255,255,255,.035);
+}
+body.zxv-admin-theme #zxv-admin-overview-brand::after {
+  content:"";
+  position:absolute;
+  top:0; bottom:0; left:-25%; width:18%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);
+  transform:skewX(-18deg);
+  animation:zxvTabSweep 4.5s ease-in-out infinite;
+  pointer-events:none;
+}
+.zxv-admin-overview-mark {
+  position:relative;
+  z-index:1;
+  width:46px; height:46px;
+  flex:0 0 46px;
+  display:grid; place-items:center;
+  border:1px solid rgba(72,169,255,.22);
+  border-radius:13px;
+  background:rgba(2,9,18,.72);
+  box-shadow:0 0 25px rgba(72,169,255,.10), inset 0 0 18px rgba(72,169,255,.04);
+}
+.zxv-admin-overview-mark img { width:30px; height:30px; object-fit:contain; display:block; }
+.zxv-admin-overview-brand-copy { position:relative; z-index:1; min-width:0; display:flex; flex-direction:column; gap:2px; }
+.zxv-admin-overview-brand-copy strong { color:#f2f8ff; font-size:15px; font-weight:900; letter-spacing:.08em; }
+.zxv-admin-overview-brand-copy small { color:#718aa6; font-size:9px; line-height:1.45; }
+.zxv-admin-overview-brand-status {
+  position:relative; z-index:1; margin-left:auto; flex:none;
+  display:inline-flex; align-items:center; gap:6px;
+  padding:7px 9px; border:1px solid rgba(66,215,160,.15); border-radius:999px;
+  background:rgba(66,215,160,.045); color:#7edbb7; font-size:8px; font-weight:900; letter-spacing:.12em;
+}
+.zxv-admin-overview-brand-status i { width:6px; height:6px; border-radius:50%; background:#42d7a0; box-shadow:0 0 10px rgba(66,215,160,.7); }
+
+/* Create server refinement: stronger section identity so the form does not feel flat. */
+body.zxv-server-create-theme .zxv-allocation-box .box-header .box-title::after { content:"  •  NETWORK"; color:#5e87aa; font-size:8px; font-weight:800; letter-spacing:.14em; }
+body.zxv-server-create-theme main .form-group[class*="col-"] { padding-left:9px !important; padding-right:9px !important; }
+body.zxv-server-create-theme main .row { margin-left:-9px !important; margin-right:-9px !important; }
+body.zxv-server-create-theme main .form-group:hover > label { color:#f0f7ff !important; }
+body.zxv-server-create-theme .zxv-group-zxv-allocation-node,
+body.zxv-server-create-theme .zxv-group-zxv-allocation-primary,
+body.zxv-server-create-theme .zxv-group-zxv-allocation-additional {
+  padding:12px !important;
+  border:1px solid rgba(72,169,255,.09);
+  border-radius:13px;
+  background:linear-gradient(145deg,rgba(72,169,255,.025),rgba(255,255,255,.008));
+}
+body.zxv-server-create-theme .zxv-group-zxv-allocation-node > label::before,
+body.zxv-server-create-theme .zxv-group-zxv-allocation-primary > label::before,
+body.zxv-server-create-theme .zxv-group-zxv-allocation-additional > label::before {
+  content:""; display:inline-block; width:5px; height:5px; margin:0 7px 2px 0;
+  border-radius:50%; background:#48a9ff; box-shadow:0 0 9px rgba(72,169,255,.55);
+}
+body.zxv-server-create-theme .zxv-allocation-summary { margin-top:0; }
+body.zxv-server-create-theme main .box:not(.zxv-allocation-box) .box-header { background:linear-gradient(90deg,rgba(118,108,255,.035),transparent 70%) !important; }
+
+/* Server console: keep the terminal dark, but remove the flat pure-black slab. */
+body.zxv-server-theme .xterm {
+  position:relative !important;
+  isolation:isolate;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(69,169,255,.10), transparent 24%),
+    radial-gradient(circle at 88% 88%, rgba(118,109,255,.07), transparent 28%),
+    linear-gradient(145deg,#071321,#030914 68%,#07101d) !important;
+}
+body.zxv-server-theme .xterm::before {
+  content:"";
+  position:absolute; inset:0;
+  z-index:-1;
+  border-radius:inherit;
+  background-image:linear-gradient(rgba(72,169,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(72,169,255,.025) 1px,transparent 1px);
+  background-size:28px 28px;
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.8),transparent 92%);
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.8),transparent 92%);
+}
+body.zxv-server-theme .xterm-viewport,
+body.zxv-server-theme .xterm-screen,
+body.zxv-server-theme .xterm-screen canvas { background:transparent !important; }
+body.zxv-server-theme .xterm-rows { position:relative; z-index:2; }
+body.zxv-server-theme .xterm-helper-textarea { background:transparent !important; }
+
+@media (max-width:767px) {
+  body.zxv-admin-theme #zxv-admin-overview-brand { min-height:64px; padding:10px 11px; border-radius:13px; }
+  .zxv-admin-overview-mark { width:40px; height:40px; flex-basis:40px; }
+  .zxv-admin-overview-mark img { width:26px; height:26px; }
+  .zxv-admin-overview-brand-copy strong { font-size:13px; }
+  .zxv-admin-overview-brand-copy small { font-size:8px; }
+  .zxv-admin-overview-brand-status { padding:6px 7px; font-size:7px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  body.zxv-admin-theme #zxv-admin-overview-brand::after { animation:none; }
+}
+
+
+/* ZXV PROTECT 2.0 — guest/login refresh. */
+body.zxv-guest-theme {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(62,167,255,.16), transparent 30%),
+    radial-gradient(circle at 84% 18%, rgba(124,108,255,.13), transparent 28%),
+    linear-gradient(135deg, #050a13 0%, #08111f 48%, #050914 100%) !important;
+}
+body.zxv-guest-theme::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .34;
+  background:
+    linear-gradient(rgba(82,166,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(82,166,255,.035) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
+}
+body.zxv-guest-theme .login-box,
+body.zxv-guest-theme .login-container,
+body.zxv-guest-theme .login-card {
+  width: min(520px, calc(100vw - 28px)) !important;
+  margin: 7vh auto 0 !important;
+  position: relative;
+  z-index: 2;
+}
+body.zxv-guest-theme .login-box-body,
+body.zxv-guest-theme .login-card > div,
+body.zxv-guest-theme .login-card form,
+body.zxv-guest-theme .box-login {
+  border: 1px solid rgba(112,171,232,.17) !important;
+  border-radius: 22px !important;
+  background: linear-gradient(145deg, rgba(15,27,46,.94), rgba(7,15,27,.96)) !important;
+  box-shadow: 0 30px 90px rgba(0,0,0,.42), 0 0 42px rgba(62,167,255,.07), inset 0 1px rgba(255,255,255,.04) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+body.zxv-guest-theme .login-logo,
+body.zxv-guest-theme .login-title {
+  color: #f6fbff !important;
+  font-weight: 850 !important;
+  letter-spacing: -.025em;
+  text-shadow: 0 0 30px rgba(62,167,255,.18);
+}
+body.zxv-guest-theme .login-box-msg,
+body.zxv-guest-theme label,
+body.zxv-guest-theme .text-muted,
+body.zxv-guest-theme small {
+  color: #8ea7c3 !important;
+}
+body.zxv-guest-theme .form-control,
+body.zxv-guest-theme input,
+body.zxv-guest-theme select,
+body.zxv-guest-theme textarea {
+  min-height: 46px !important;
+  border: 1px solid rgba(107,158,211,.19) !important;
+  border-radius: 12px !important;
+  background: rgba(3,10,19,.86) !important;
+  color: #f4f8ff !important;
+  box-shadow: inset 0 1px rgba(255,255,255,.025) !important;
+}
+body.zxv-guest-theme .form-control:focus,
+body.zxv-guest-theme input:focus,
+body.zxv-guest-theme select:focus,
+body.zxv-guest-theme textarea:focus {
+  border-color: rgba(62,167,255,.72) !important;
+  box-shadow: 0 0 0 3px rgba(62,167,255,.10), 0 12px 34px rgba(0,0,0,.18) !important;
+  outline: none !important;
+}
+body.zxv-guest-theme .btn-primary,
+body.zxv-guest-theme button[type="submit"] {
+  min-height: 46px !important;
+  border: 0 !important;
+  border-radius: 12px !important;
+  background: linear-gradient(135deg, #3ea7ff, #635cf5) !important;
+  color: #fff !important;
+  font-weight: 800 !important;
+  box-shadow: 0 12px 30px rgba(62,167,255,.16) !important;
+}
+body.zxv-guest-theme .btn-primary:hover,
+body.zxv-guest-theme button[type="submit"]:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+}
+body.zxv-guest-theme .alert,
+body.zxv-guest-theme .callout {
+  border: 1px solid rgba(255,91,105,.22) !important;
+  border-radius: 12px !important;
+  background: rgba(75,18,28,.78) !important;
+  color: #ffd8dd !important;
+}
+body.zxv-guest-theme .login-footer,
+body.zxv-guest-theme footer {
+  color: #617994 !important;
+}
+@media (max-width: 640px) {
+  body.zxv-guest-theme .login-box,
+  body.zxv-guest-theme .login-container,
+  body.zxv-guest-theme .login-card { margin-top: 4vh !important; }
+}
+
+/* ZXV PROTECT 2.0 — legacy admin chrome refresh. */
+body.zxv-admin-theme .main-header,
+body.zxv-admin-theme .main-sidebar,
+body.zxv-admin-theme .content-wrapper,
+body.zxv-admin-theme .main-footer {
+  border-color: rgba(99,171,255,.09) !important;
+}
+body.zxv-admin-theme .main-header .logo {
+  letter-spacing: .035em !important;
+}
+body.zxv-admin-theme .content-wrapper {
+  background:
+    radial-gradient(circle at 75% 0, rgba(62,167,255,.055), transparent 28%),
+    linear-gradient(180deg, rgba(7,14,26,.98), rgba(5,10,19,.99)) !important;
+}
+body.zxv-admin-theme .content-header h1,
+body.zxv-admin-theme .content-header h2 {
+  font-weight: 850 !important;
+  letter-spacing: -.02em;
+}
+body.zxv-admin-theme .box-header {
+  padding: 15px 17px !important;
+  background: linear-gradient(135deg, rgba(19,35,57,.88), rgba(11,22,38,.88)) !important;
+}
+body.zxv-admin-theme .box-body { padding: 17px !important; }
+body.zxv-admin-theme .nav-tabs-custom > .nav-tabs > li.active > a {
+  border-top-color: #3ea7ff !important;
+  background: rgba(62,167,255,.06) !important;
+  color: #fff !important;
+}
